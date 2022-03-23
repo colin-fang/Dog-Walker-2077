@@ -12,6 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: 8d4c5cd34f8c7374ea72c7907e1f129c
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/PetSelection.unity
     guid: 8066a88199083b349b43b2a758d506c6
+=======
+    path: Assets/Scenes/MainMenu.unity
+    guid: be20eceab51f2bb438b19ab94935ee57
+>>>>>>> cc01720429bd75de2af36d3e5b95980804cae727
   m_configObjects: {}

@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.tag == "Finish")
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
         }
     }
 }

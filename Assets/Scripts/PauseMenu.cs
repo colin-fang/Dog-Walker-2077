@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         pauseMenu.SetActive(false);
-        Menu.onClick.AddListener(delegate { Home(1); });
+        Menu.onClick.AddListener(delegate { Home(0); });
         Resume.onClick.AddListener(ResumeGame);
         Exit.onClick.AddListener(doExitGame);
     }

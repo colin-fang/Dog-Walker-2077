@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Health : MonoBehaviour
     int currentHealth;
     public Animator animator;
     public GameObject self;
+    public string sceneToLoad;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,10 +30,10 @@ public class Health : MonoBehaviour
 
     void Die()
     {
+        SceneManager.LoadScene(sceneToLoad);
         animator.SetBool("IsDead", true);
-        
-        Destroy(self);
-        this.enabled = false;
+        //Destroy(self);
+        //this.enabled = false;
 
     }
 

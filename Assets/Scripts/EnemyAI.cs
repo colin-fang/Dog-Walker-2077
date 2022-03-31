@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
-    public Transform graphics;
+    public Transform orientation;
 
     public BoxCollider2D hurtbox;
     public int attackDamage = 20;
@@ -77,10 +77,10 @@ public class EnemyAI : MonoBehaviour
 
         if(force.x >= 0.01f)
         {
-            graphics.localScale = new Vector3(-1f, 1f, 1f);
+            orientation.localScale = new Vector3(-1f, 1f, 1f);
         }else if(force.x <= -0.01f)
         {
-            graphics.localScale = new Vector3(1f, 1f, 1f);
+            orientation.localScale = new Vector3(1f, 1f, 1f);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

@@ -2092,7 +2092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5272ae8028c3c44fa56da4b8543356d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: MainMenu
+  sceneToLoad: GameOver
 --- !u!61 &1271816716
 BoxCollider2D:
   m_ObjectHideFlags: 0

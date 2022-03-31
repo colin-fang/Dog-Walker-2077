@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         pauseMenu.SetActive(false);
-        Menu.onClick.AddListener(delegate { Home(0); });
+        Menu.onClick.AddListener(delegate { Home("MainMenu"); });
         Resume.onClick.AddListener(ResumeGame);
         Exit.onClick.AddListener(doExitGame);
     }
@@ -47,10 +47,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
     }
-    public void Home(int sceneID)
+    public void Home(string name)
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(sceneID);
+        SceneManager.LoadScene(name);
     }
     public void doExitGame()
     {

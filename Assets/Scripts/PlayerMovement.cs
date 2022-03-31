@@ -40,7 +40,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.tag == "Finish")
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("LevelHomeWin");
+        }
+        if(collision.tag == "Over")
+        {
+            SceneManager.LoadScene("LevelHomeOver");
         }
     }
 }

@@ -728,6 +728,7 @@ MonoBehaviour:
   maxHealth: 100
   animator: {fileID: 67128293}
   self: {fileID: 67128290}
+  sceneToLoad: 
 --- !u!1 &74910058
 GameObject:
   m_ObjectHideFlags: 0

@@ -1190,7 +1190,7 @@ namespace Pathfinding {
 	/// For 3D games you most likely want the ZAxisIsForward option as that is the convention for 3D games.
 	/// For 2D games you most likely want the YAxisIsForward option as that is the convention for 2D games.
 	/// </summary>
-	public enum OrientationMode {
+	public enum orientationMode {
 		ZAxisForward,
 		YAxisForward,
 	}

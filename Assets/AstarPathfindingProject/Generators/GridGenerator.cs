@@ -204,7 +204,7 @@ namespace Pathfinding {
 		/// You can read more about it on the wikipedia page linked below.
 		///
 		/// See: http://en.wikipedia.org/wiki/Isometric_projection
-		/// See: https://en.wikipedia.org/wiki/Isometric_graphics_in_video_games_and_pixel_art
+		/// See: https://en.wikipedia.org/wiki/Isometric_orientation_in_video_games_and_pixel_art
 		/// See: rotation
 		/// </summary>
 		[JsonMember]

@@ -894,7 +894,7 @@ namespace Pathfinding {
 		/// See: https://en.wikipedia.org/wiki/Normal_(geometry)
 		/// See: https://en.wikipedia.org/wiki/Parallelepiped
 		/// </summary>
-		public static bool ReversesFaceOrientations (Matrix4x4 matrix) {
+		public static bool ReversesFaceorientations (Matrix4x4 matrix) {
 			var dX = matrix.MultiplyVector(new Vector3(1, 0, 0));
 			var dY = matrix.MultiplyVector(new Vector3(0, 1, 0));
 			var dZ = matrix.MultiplyVector(new Vector3(0, 0, 1));
@@ -907,7 +907,7 @@ namespace Pathfinding {
 
 		/// <summary>
 		/// True if the matrix will reverse orientations of faces in the XZ plane.
-		/// Almost the same as ReversesFaceOrientations, but this method assumes
+		/// Almost the same as ReversesFaceorientations, but this method assumes
 		/// that scaling a face with a negative scale along the Y axis does not
 		/// reverse the orientation of the face.
 		///
@@ -926,7 +926,7 @@ namespace Pathfinding {
 		/// that also means that the orientation of it has been reversed.
 		/// The signed area is calculated using a cross product of the vectors.
 		/// </summary>
-		public static bool ReversesFaceOrientationsXZ (Matrix4x4 matrix) {
+		public static bool ReversesFaceorientationsXZ (Matrix4x4 matrix) {
 			var dX = matrix.MultiplyVector(new Vector3(1, 0, 0));
 			var dZ = matrix.MultiplyVector(new Vector3(0, 0, 1));
 

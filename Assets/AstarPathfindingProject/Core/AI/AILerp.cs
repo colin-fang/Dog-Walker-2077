@@ -92,7 +92,7 @@ namespace Pathfinding {
 		/// [Open online documentation to see images]
 		/// </summary>
 		[UnityEngine.Serialization.FormerlySerializedAs("rotationIn2D")]
-		public OrientationMode orientation = OrientationMode.ZAxisForward;
+		public orientationMode orientation = orientationMode.ZAxisForward;
 
 		/// <summary>
 		/// If true, the forward axis of the character will be along the Y axis instead of the Z axis.
@@ -101,8 +101,8 @@ namespace Pathfinding {
 		/// </summary>
 		[System.Obsolete("Use orientation instead")]
 		public bool rotationIn2D {
-			get { return orientation == OrientationMode.YAxisForward; }
-			set { orientation = value ? OrientationMode.YAxisForward : OrientationMode.ZAxisForward; }
+			get { return orientation == orientationMode.YAxisForward; }
+			set { orientation = value ? orientationMode.YAxisForward : orientationMode.ZAxisForward; }
 		}
 
 		/// <summary>
@@ -137,7 +137,7 @@ namespace Pathfinding {
 				// Note: distanceToSteeringTarget is the distance to the end of the path when approachingPathEndpoint is true
 				var dir = destination - interpolator.endPoint;
 				// Ignore either the y or z coordinate depending on if we are using 2D mode or not
-				if (orientation == OrientationMode.YAxisForward) dir.z = 0;
+				if (orientation == orientationMode.YAxisForward) dir.z = 0;
 				else dir.y = 0;
 
 				// Check against using a very small margin
@@ -642,9 +642,9 @@ namespace Pathfinding {
 		Quaternion SimulateRotationTowards (Vector3 direction, float deltaTime) {
 			// Rotate unless we are really close to the target
 			if (direction != Vector3.zero) {
-				Quaternion targetRotation = Quaternion.LookRotation(direction, orientation == OrientationMode.YAxisForward ? Vector3.back : Vector3.up);
+				Quaternion targetRotation = Quaternion.LookRotation(direction, orientation == orientationMode.YAxisForward ? Vector3.back : Vector3.up);
 				// This causes the character to only rotate around the Z axis
-				if (orientation == OrientationMode.YAxisForward) targetRotation *= Quaternion.Euler(90, 0, 0);
+				if (orientation == orientationMode.YAxisForward) targetRotation *= Quaternion.Euler(90, 0, 0);
 				return Quaternion.Slerp(simulatedRotation, targetRotation, deltaTime * rotationSpeed);
 			}
 			return simulatedRotation;

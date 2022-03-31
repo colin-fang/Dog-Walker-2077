@@ -81,7 +81,7 @@ namespace Pathfinding {
 				FloatField("acceleration", min: 0f);
 
 				// The RichAI script doesn't really support any orientation other than Z axis forward, so don't expose it in the inspector
-				FindProperty("orientation").enumValueIndex = (int)OrientationMode.ZAxisForward;
+				FindProperty("orientation").enumValueIndex = (int)orientationMode.ZAxisForward;
 			}
 
 			if (PropertyField("enableRotation")) {

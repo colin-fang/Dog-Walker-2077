@@ -184,7 +184,7 @@ namespace Pathfinding {
 				if (!interpolator.valid || remainingDistance + movementPlane.ToPlane(destination - interpolator.endPoint).magnitude > endReachedDistance) return false;
 
 				// Don't do height checks in 2D mode
-				if (orientation != OrientationMode.YAxisForward) {
+				if (orientation != orientationMode.YAxisForward) {
 					// Check if the destination is above the head of the character or far below the feet of it
 					float yDifference;
 					movementPlane.ToPlane(destination - position, out yDifference);
@@ -306,7 +306,7 @@ namespace Pathfinding {
 			interpolator.SetPath(path.vectorPath);
 
 			var graph = path.path.Count > 0 ? AstarData.GetGraph(path.path[0]) as ITransformedGraph : null;
-			movementPlane = graph != null ? graph.transform : (orientation == OrientationMode.YAxisForward ? new GraphTransform(Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(-90, 270, 90), Vector3.one)) : GraphTransform.identityTransform);
+			movementPlane = graph != null ? graph.transform : (orientation == orientationMode.YAxisForward ? new GraphTransform(Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(-90, 270, 90), Vector3.one)) : GraphTransform.identityTransform);
 
 			// Reset some variables
 			reachedEndOfPath = false;
@@ -369,7 +369,7 @@ namespace Pathfinding {
 			float slowdown;
 
 			// Normalized direction of where the agent is looking
-			var forwards = movementPlane.ToPlane(simulatedRotation * (orientation == OrientationMode.YAxisForward ? Vector3.up : Vector3.forward));
+			var forwards = movementPlane.ToPlane(simulatedRotation * (orientation == orientationMode.YAxisForward ? Vector3.up : Vector3.forward));
 
 			// Check if we have a valid path to follow and some other script has not stopped the character
 			bool stopped = isStopped || (reachedDestination && whenCloseToDestination == CloseToDestinationMode.Stop);
@@ -474,7 +474,7 @@ namespace Pathfinding {
 				// Make sure the scene view is repainted while the gizmos are visible
 				if (!alwaysDrawGizmos) UnityEditor.SceneView.RepaintAll();
 				Draw.Gizmos.Line(position, steeringTarget, GizmoColor * new Color(1, 1, 1, alpha));
-				Gizmos.matrix = Matrix4x4.TRS(position, transform.rotation * (orientation == OrientationMode.YAxisForward ? Quaternion.Euler(-90, 0, 0) : Quaternion.identity), Vector3.one);
+				Gizmos.matrix = Matrix4x4.TRS(position, transform.rotation * (orientation == orientationMode.YAxisForward ? Quaternion.Euler(-90, 0, 0) : Quaternion.identity), Vector3.one);
 				Draw.Gizmos.CircleXZ(Vector3.zero, pickNextWaypointDist, GizmoColor * new Color(1, 1, 1, alpha));
 				Draw.Gizmos.CircleXZ(Vector3.zero, slowdownDistance, Color.Lerp(GizmoColor, Color.red, 0.5f) * new Color(1, 1, 1, alpha));
 				Draw.Gizmos.CircleXZ(Vector3.zero, endReachedDistance, Color.Lerp(GizmoColor, Color.red, 0.8f) * new Color(1, 1, 1, alpha));

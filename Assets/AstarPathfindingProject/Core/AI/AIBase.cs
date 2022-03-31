@@ -128,7 +128,7 @@ namespace Pathfinding {
 		/// [Open online documentation to see images]
 		/// </summary>
 		[UnityEngine.Serialization.FormerlySerializedAs("rotationIn2D")]
-		public OrientationMode orientation = OrientationMode.ZAxisForward;
+		public orientationMode orientation = orientationMode.ZAxisForward;
 
 		/// <summary>
 		/// If true, the forward axis of the character will be along the Y axis instead of the Z axis.
@@ -137,8 +137,8 @@ namespace Pathfinding {
 		/// </summary>
 		[System.Obsolete("Use orientation instead")]
 		public bool rotationIn2D {
-			get { return orientation == OrientationMode.YAxisForward; }
-			set { orientation = value ? OrientationMode.YAxisForward : OrientationMode.ZAxisForward; }
+			get { return orientation == orientationMode.YAxisForward; }
+			set { orientation = value ? orientationMode.YAxisForward : orientationMode.ZAxisForward; }
 		}
 
 		/// <summary>
@@ -580,7 +580,7 @@ namespace Pathfinding {
 			if (direction != Vector2.zero) {
 				Quaternion targetRotation = Quaternion.LookRotation(movementPlane.ToWorld(direction, 0), movementPlane.ToWorld(Vector2.zero, 1));
 				// This causes the character to only rotate around the Z axis
-				if (orientation == OrientationMode.YAxisForward) targetRotation *= Quaternion.Euler(90, 0, 0);
+				if (orientation == orientationMode.YAxisForward) targetRotation *= Quaternion.Euler(90, 0, 0);
 				return Quaternion.RotateTowards(simulatedRotation, targetRotation, maxDegrees);
 			}
 			return simulatedRotation;
@@ -730,7 +730,7 @@ namespace Pathfinding {
 			if (!Application.isPlaying || !enabled) FindComponents();
 
 			var color = ShapeGizmoColor;
-			if (orientation == OrientationMode.YAxisForward) {
+			if (orientation == orientationMode.YAxisForward) {
 				Draw.Gizmos.Cylinder(position, Vector3.forward, 0, radius * tr.localScale.x, color);
 			} else {
 				Draw.Gizmos.Cylinder(position, rotation * Vector3.up, tr.localScale.y * height, radius * tr.localScale.x, color);

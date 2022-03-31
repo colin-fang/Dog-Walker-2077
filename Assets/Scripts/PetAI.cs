@@ -6,6 +6,7 @@ using Pathfinding;
 public class PetAI : MonoBehaviour
 {
 
+    public Transform[] targets = new Transform[7];
     public Transform target;
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
@@ -19,7 +20,7 @@ public class PetAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
-    public Transform graphics;
+    public Transform orientation;
     public Transform Owner;
 
     public Animator animator;
@@ -42,6 +43,7 @@ public class PetAI : MonoBehaviour
         {
             seeker.StartPath(rb.position, Owner.position, OnPathComplete);
         }
+        
         if (seeker.IsDone() && Mathf.Abs(target.position.x - rb.position.x) < minDistance )
         {
 
@@ -51,6 +53,8 @@ public class PetAI : MonoBehaviour
         {
             seeker.StartPath(rb.position, Owner.position, OnPathComplete);
         }
+        
+            
     }
     void OnPathComplete(Path p)
     {
@@ -91,12 +95,22 @@ public class PetAI : MonoBehaviour
 
         if (force.x >= 0.01f || Mathf.Abs(Owner.position.x - rb.position.x) < 1f)
         {
-            graphics.localScale = new Vector3(1f, 1f, 1f);
+            orientation.localScale = new Vector3(1f, 1f, 1f);
             
         }
         else if (force.x <= -0.01f)
         {
-            graphics.localScale = new Vector3(-1f, 1f, 1f);
+            orientation.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        float closestDist = 999;
+        for (int i = 0; i < 7; i++)
+        {
+            if (targets[i] != null && Mathf.Abs(targets[i].position.x - rb.position.x) < closestDist)
+            {
+                closestDist = targets[i].position.x - rb.position.x;
+                Debug.Log(closestDist);
+                target = targets[i];
+            }
         }
     }
 
